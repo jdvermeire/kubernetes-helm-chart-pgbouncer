@@ -1,0 +1,24 @@
+apiVersion: v1
+entries:
+  pgbouncer:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2021-09-28T16:20:04.843255-04:00"
+    description: PgBouncer chart
+    digest: 01422c5336ce8ab4ac6475511b1a801635d1c98f43dbb1b810b0e1b84305058e
+    home: https://github.com/cradlepoint/kubernetes-helm-chart-pgbouncer
+    name: pgbouncer
+    urls:
+    - https://jdvermeire.github.io/kubernetes-helm-chart-pgbouncer/pgbouncer-1.0.13.tgz
+    version: 1.0.13
+  - apiVersion: v1
+    appVersion: "0.1"
+    created: "2021-09-28T16:20:04.842536-04:00"
+    description: PgBouncer chart
+    digest: 93e7bb925c1f6eb914db97dc9713257456e438dca9505ca52aea112353203508
+    home: https://github.com/jdvermeire/kubernetes-helm-chart-pgbouncer
+    name: pgbouncer
+    urls:
+    - https://jdvermeire.github.io/kubernetes-helm-chart-pgbouncer/pgbouncer-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-09-28T16:20:04.841693-04:00"
