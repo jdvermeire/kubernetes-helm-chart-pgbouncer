@@ -19,6 +19,16 @@ image:
   tag: 1.0.1
   pullPolicy: Always
 
+cloudSqlProxy:
+  repository: gcr.io/cloudsql-docker/gce-proxy
+  tag: 1.25.0
+  instanceConnectionName: localhost
+  port: 5432
+  saSecretVolume: secret
+  saSecret: secret.json
+  memory: 2Gi
+  cpu: 1
+
 imagePullSecrets: []
 
 databases: {}

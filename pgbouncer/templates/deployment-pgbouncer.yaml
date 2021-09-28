@@ -65,6 +65,9 @@ spec:
         - name: config
           configMap:
             name: {{ template "pgbouncer.fullname" . }}-config
+        - name: {{ .Values.cloudSqlProxy.saSecretVolume }}
+          secret:
+            secretName: {{ .Values.cloudSqlProxy.saSecret }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -98,4 +101,19 @@ spec:
               readOnly: true
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-
+        - name: cloud-sql-proxy
+          image: "{{ .Values.cloudSqlProxy.repository }}:{{ .Values.cloudSqlProxy.tag }}"
+          command:
+            - "/cloud_sql_proxy"
+            - "-instances={{ .Values.cloudSqlProxy.instanceConnectionName }}=tcp:{{ .Values.cloudSqlProxy.port }}"
+            - "-credential_file=/secrets/service_account.json"
+          securityContext:
+            runAsNonRoot: true
+          volumeMounts:
+            - name: {{ .Values.cloudSqlProxy.saSecretVolume }}
+              mountPath: /secrets/
+              readOnly: true
+          resources:
+            requests:
+              memory: "{{ .Values.cloudSqlProxy.memory }}"
+              cpu: "{{ .Values.cloudSqlProxy.cpu }}"
