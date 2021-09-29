@@ -26,8 +26,8 @@ cloudSqlProxy:
   port: 5432
   saSecretVolume: secret
   saSecret: secret.json
-  memory: 2Gi
-  cpu: 1
+  memory: 200Mi
+  cpu: 100m
 
 imagePullSecrets: []
 

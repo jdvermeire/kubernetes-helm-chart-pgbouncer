@@ -67,7 +67,7 @@ spec:
             name: {{ template "pgbouncer.fullname" . }}-config
         - name: {{ .Values.cloudSqlProxy.saSecretVolume }}
           secret:
-            secretName: {{ .Values.cloudSqlProxy.saSecret }}
+            secretName: {{ .Values.cloudSqlProxy.saSecretVolume }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
